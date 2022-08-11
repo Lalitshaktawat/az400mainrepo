@@ -1,0 +1,113 @@
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# tail -10 access.log
+127.0.0.1 - - [09/Aug/2022:20:41:45 +0800] "GET /monitor.php HTTP/1.1" 200 1033 "-" "Site24x7"
+127.0.0.1 - - [09/Aug/2022:20:41:47 +0800] "GET /monitor.php HTTP/1.1" 200 1033 "-" "Site24x7"
+127.0.0.1 - - [09/Aug/2022:20:41:47 +0800] "GET /monitor.php HTTP/1.1" 200 1032 "-" "Site24x7"
+127.0.0.1 - - [09/Aug/2022:20:41:59 +0800] "GET /zh-cn/collection/hennessy-xxo?ivk_sa=1024320u HTTP/1.1" 500 85 "https://m.baidu.com/" "Mozilla/5.0 (Linux; Android 12; 2109119BC Build/SKQ1.211006.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/97.0.4692.98 Mobile Safari/537.36 T7/13.15"
+127.0.0.1 - - [09/Aug/2022:20:42:14 +0800] "GET / HTTP/1.1" 302 775 "-" "-"
+127.0.0.1 - - [09/Aug/2022:20:42:56 +0800] "GET /zh-cn HTTP/1.1" 500 85 "-" "curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.44 zlib/1.2.3 libidn/1.18 libssh2/1.4.2"
+127.0.0.1 - - [09/Aug/2022:20:43:04 +0800] "GET / HTTP/1.1" 302 774 "-" "-"
+127.0.0.1 - - [09/Aug/2022:20:43:06 +0800] "GET /lbn_admin/server-status HTTP/1.0" 200 98 "-" "Wget/1.12 (linux-gnu)"
+127.0.0.1 - - [09/Aug/2022:20:43:54 +0800] "GET /zh-cn/collection/hennessy-vsop-privilege HTTP/1.1" 301 947 "https://m.baidu.com/" "Mozilla/5.0 (Linux; Android 10; NOH-AN00 Build/HUAWEINOH-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/13.12 BDOS/1.0 (HarmonyOS 2.2.0) SP-engine/2.52.0 baiduboxapp/13.14.0.11 (Baidu; P1 10) NABar/1.0"
+127.0.0.1 - - [09/Aug/2022:20:43:55 +0800] "GET /zh-cn/collection/hennessy-vsop HTTP/1.1" 500 85 "https://m.baidu.com/" "Mozilla/5.0 (Linux; Android 10; NOH-AN00 Build/HUAWEINOH-AN00; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/76.0.3809.89 Mobile Safari/537.36 T7/13.12 BDOS/1.0 (HarmonyOS 2.2.0) SP-engine/2.52.0 baiduboxapp/13.14.0.11 (Baidu; P1 10) NABar/1.0"
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# tail -10 php_error.log
+#55 /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Core/StackMiddleware/KernelPreHandle.php(47): Drupal\Core\StackMiddleware\Session->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#56 /home/sites_web/client/drupal/www/d8docroot/core/modules/page_cache/src/StackMiddleware/PageCache.php(191): Drupal\Core\StackMiddleware\KernelPreHandle->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#57 /home/sites_web/client/drupal/www/d8docroot/core/modules/page_cache/src/StackMiddleware/PageCache.php(128): Drupal\page_cache\StackMiddleware\PageCache->fetch(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#58 /home/sites_web/client/drupal/www/d8docroot/core/modules/page_cache/src/StackMiddleware/PageCache.php(82): Drupal\page_cache\StackMiddleware\PageCache->lookup(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#59 /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Core/StackMiddleware/ReverseProxyMiddleware.php(47): Drupal\page_cache\StackMiddleware\PageCache->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#60 /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Core/StackMiddleware/NegotiationMiddleware.php(52): Drupal\Core\StackMiddleware\ReverseProxyMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#61 /home/sites_web/client/drupal/www/d8docroot/vendor/stack/builder/src/Stack/StackedHttpKernel.php(23): Drupal\Core\StackMiddleware\NegotiationMiddleware->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#62 /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Core/DrupalKernel.php(708): Stack\StackedHttpKernel->handle(Object(Symfony\Component\HttpFoundation\Request), 1, true)
+#63 /home/sites_web/client/drupal/www/d8docroot/index.php(19): Drupal\Core\DrupalKernel->handle(Object(Symfony\Component\HttpFoundation\Request))
+#64 {main}
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# tail -10 php-fpm_error.log
+[09-Aug-2022 20:41:02] ERROR: unable to read what child say: Bad file descriptor (9)
+[09-Aug-2022 20:41:02] NOTICE: exiting, bye-bye!
+[09-Aug-2022 20:41:05] NOTICE: fpm is running, pid 32540
+[09-Aug-2022 20:41:05] NOTICE: ready to handle connections
+[09-Aug-2022 20:41:16] NOTICE: configuration file /etc/lbn/nginx/conf/sites/hennessy_cn/php7-fpm.conf test is successful
+
+[09-Aug-2022 20:41:16] NOTICE: Finishing ...
+[09-Aug-2022 20:41:16] NOTICE: exiting, bye-bye!
+[09-Aug-2022 20:41:19] NOTICE: fpm is running, pid 493
+[09-Aug-2022 20:41:19] NOTICE: ready to handle connections
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# tail -10 error.log
+2022/08/09 13:17:29 [error] 11124#11124: *121137 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "POST //maccms/index.php?m=vod-search=%7Bif-A:assert($_POST%5Ba%5D)%7D%7Bendif-A%7D HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.moet.com", referrer: "https://cn.moet.com//maccms/index.php?m=vod-search={if-A:assert($_POST[a])}{endif-A}"
+2022/08/09 13:41:55 [error] 11125#11125: *121306 recv() failed (104: Connection reset by peer) while reading response header from upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "GET /zh-cn/stories/the-future-mastery HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.hennessy.cn"
+2022/08/09 13:59:30 [error] 11124#11124: *121416 open() "/home/sites_web/client/drupal/www/d8docroot/robots.txt" failed (2: No such file or directory), client: 127.0.0.1, server: cn.hennessy.com, request: "GET /robots.txt HTTP/1.1", host: "cn.moet.com"
+2022/08/09 15:17:28 [error] 11124#11124: *121783 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "POST //utility/convert/index.php?a=config&source=d7.2_x2.0 HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.moet.com", referrer: "https://cn.moet.com//utility/convert/index.php?a=config&source=d7.2_x2.0"
+2022/08/09 15:17:41 [error] 11124#11124: *121783 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "POST //maccms/index.php?m=vod-search=%7Bif-A:assert($_POST%5Ba%5D)%7D%7Bendif-A%7D HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.moet.com", referrer: "https://cn.moet.com//maccms/index.php?m=vod-search={if-A:assert($_POST[a])}{endif-A}"
+2022/08/09 16:11:22 [error] 11125#11125: *122075 open() "/home/sites_web/client/drupal/www/d8docroot/robots.txt" failed (2: No such file or directory), client: 127.0.0.1, server: cn.hennessy.com, request: "GET /robots.txt HTTP/1.1", host: "cn.moet.com"
+2022/08/09 17:40:39 [error] 11126#11126: *122474 open() "/home/sites_web/client/drupal/www/d8docroot/robots.txt" failed (2: No such file or directory), client: 127.0.0.1, server: cn.hennessy.com, request: "GET /robots.txt HTTP/1.1", host: "cn.moet.com"
+2022/08/09 18:14:16 [error] 11124#11124: *122694 FastCGI sent in stderr: "Primary script unknown" while reading response header from upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "GET //utility/convert/index.php?a=config&source=d7.2_x2.0 HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.moet.com"
+2022/08/09 19:57:26 [error] 27530#27530: *358 open() "/home/sites_web/client/drupal/www/d8docroot/robots.txt" failed (2: No such file or directory), client: 127.0.0.1, server: cn.hennessy.com, request: "GET /robots.txt HTTP/1.1", host: "cn.moet.com"
+2022/08/09 20:41:04 [crit] 23180#23180: *1 connect() to unix:/var/run/fpm-hennessy.socket failed (2: No such file or directory) while connecting to upstream, client: 127.0.0.1, server: cn.hennessy.com, request: "GET /favicon.ico HTTP/1.1", upstream: "fastcgi://unix:/var/run/fpm-hennessy.socket:", host: "cn.hennessy.cn", referrer: "https://www.hennessy.cn/fangwei?9UCDTWSC"
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# tail -10 php_slowlog.log
+[0x00007f219621deb0] requestAsync() /home/sites_web/client/drupal/www/d8docroot/vendor/guzzlehttp/guzzle/src/Client.php:182
+[0x00007f219621de20] request() /home/sites_web/client/drupal/www/d8docroot/vendor/guzzlehttp/guzzle/src/Client.php:95
+[0x00007f219621dd50] __call() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/custom/hennessy_multisite_hreflang/src/Service/MulisiteHreflangService.php:447
+[0x00007f219621dc90] send() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/custom/hennessy_multisite_hreflang/src/Service/MulisiteHreflangService.php:359
+[0x00007f219621dc00] updateFacetResult() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/custom/hennessy_common/src/EventSubscriber/OneFilterUrlBuiltSubscriber.php:45
+[0x00007f219621db70] onOneFilterUrlBuilt() /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Component/EventDispatcher/ContainerAwareEventDispatcher.php:111
+[0x00007f219621dae0] call_user_func() /home/sites_web/client/drupal/www/d8docroot/core/lib/Drupal/Component/EventDispatcher/ContainerAwareEventDispatcher.php:111
+[0x00007f219621d9e0] dispatch() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/custom/facets_seo_filters/src/Plugin/facets/url_processor/FacetsSeoFiltersUrlProcessor.php:114
+[0x00007f219621d910] buildUrls() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/contrib/facets/src/Utility/FacetsUrlGenerator.php:104
+[0x00007f219621d7f0] getUrl() /home/sites_web/client/drupal/www/d8projects/hennessy/modules/custom/hennessy_common/hennessy_common.module:815
+You have mail in /var/spool/mail/root
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]# curl -ILkv https://www.hennessy.cn/zh-cn
+* About to connect() to www.hennessy.cn port 443 (#0)
+*   Trying 218.91.224.145... connected
+* Connected to www.hennessy.cn (218.91.224.145) port 443 (#0)
+* Initializing NSS with certpath: sql:/etc/pki/nssdb
+* warning: ignoring value of ssl.verifyhost
+* skipping SSL peer certificate verification
+* SSL connection using TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* Server certificate:
+*       subject: CN=prd2.moethennessy.com
+*       start date: Jun 30 12:49:57 2022 GMT
+*       expire date: Sep 28 12:49:56 2022 GMT
+*       common name: prd2.moethennessy.com
+*       issuer: CN=R3,O=Let's Encrypt,C=US
+> HEAD /zh-cn HTTP/1.1
+> User-Agent: curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.44 zlib/1.2.3 libidn/1.18 libssh2/1.4.2
+> Host: www.hennessy.cn
+> Accept: */*
+>
+< HTTP/1.1 503 Service Unavailable
+HTTP/1.1 503 Service Unavailable
+< Accept-Ranges: bytes
+Accept-Ranges: bytes
+< Content-Type: text/html
+Content-Type: text/html
+< ETag: "d1eecae6f576bf6825e2ba2c68695ecf:1503066557"
+ETag: "d1eecae6f576bf6825e2ba2c68695ecf:1503066557"
+< Last-Modified: Fri, 18 Aug 2017 14:13:34 GMT
+Last-Modified: Fri, 18 Aug 2017 14:13:34 GMT
+< Server: AkamaiNetStorage
+Server: AkamaiNetStorage
+< Content-Length: 1239
+Content-Length: 1239
+< Expires: Tue, 09 Aug 2022 12:46:07 GMT
+Expires: Tue, 09 Aug 2022 12:46:07 GMT
+< Cache-Control: max-age=0, no-cache, no-store
+Cache-Control: max-age=0, no-cache, no-store
+< Pragma: no-cache
+Pragma: no-cache
+< Date: Tue, 09 Aug 2022 12:46:07 GMT
+Date: Tue, 09 Aug 2022 12:46:07 GMT
+< Connection: keep-alive
+Connection: keep-alive
+< Strict-Transport-Security: max-age=15768000
+Strict-Transport-Security: max-age=15768000
+
+<
+* Connection #0 to host www.hennessy.cn left intact
+* Closing connection #0
+[root@ALMHIDRUAPPRD01:/home/logs/nginx/hennessy_cn]#
